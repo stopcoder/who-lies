@@ -1,0 +1,14 @@
+{
+  "name": "谁是卧底 · Wer lügt?",
+  "short_name": "谁是卧底",
+  "start_url": "/who-lies/",
+  "scope": "/who-lies/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f0524",
+  "theme_color": "#1a0b2e",
+  "icons": [
+    { "src": "/who-lies/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/who-lies/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
