@@ -8,7 +8,11 @@
     "scheme": "wholies",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.stopcoder.wholies",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -34,11 +38,21 @@
             "imageWidth": 76
           }
         }
-      ]
+      ],
+      "expo-font",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
-      "reactCompiler": true
-    }
+      "reactCompiler": true,
+      "baseUrl": "/who-lies"
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "b3b8ed7f-2621-4be4-a8ed-4fb5afd84c40"
+      }
+    },
+    "owner": "stopcoder"
   }
 }

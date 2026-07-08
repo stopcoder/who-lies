@@ -1,16 +1,32 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import React from 'react';
-import { useColorScheme } from 'react-native';
+import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import React, { useEffect } from "react";
+import { Platform } from "react-native";
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+import { GameProvider } from "@/state/GameContext";
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+export default function RootLayout() {
+  useEffect(() => {
+    if (Platform.OS !== "web") return;
+    const block = (e: Event) => e.preventDefault();
+    document.addEventListener("contextmenu", block);
+    document.addEventListener("selectstart", block);
+    return () => {
+      document.removeEventListener("contextmenu", block);
+      document.removeEventListener("selectstart", block);
+    };
+  }, []);
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <GameProvider>
+      <StatusBar style="light" />
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          contentStyle: { backgroundColor: "#0f0524" },
+          animation: "fade",
+        }}
+      />
+    </GameProvider>
   );
 }
